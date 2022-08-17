@@ -27,24 +27,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /** mapping*/
-
-        taskAdapter = new TaskAdapter(this,R.layout.task_line,tasksArrayList);
         recycleViewTasks = findViewById(R.id.recycleViewTasks);
         tasksArrayList = new ArrayList<>();
-
+        taskAdapter = new TaskAdapter(this,R.layout.task_line,tasksArrayList);
         /** Create database Note*/
         database = new Database(this,"note.sqlite",null,1);
         /** create table tasks*/
         database.QueryData("CREATE TABLE IF NOT EXISTS Tasks(Id INTEGER PRIMARY KEY AUTOINCREMENT, TaskName VARCHAR(200) )");
         /** insert data*/
-        database.QueryData("INSERT INTO Tasks VALUES(null, 'To do job 1')");
+        database.QueryData("INSERT INTO Tasks VALUES(null, 'To do job 2')");
         /** select data*/
         Cursor dataTask = database.GetData("SELECT * FROM Tasks");
         while (dataTask.moveToNext()){
             String taskName = dataTask.getString(1);
             int id = dataTask.getInt(0);
             tasksArrayList.add(new Tasks(id,taskName));
-
+            Toast.makeText(this, taskName, Toast.LENGTH_SHORT).show();
         }
         taskAdapter.notifyDataSetChanged();
     }

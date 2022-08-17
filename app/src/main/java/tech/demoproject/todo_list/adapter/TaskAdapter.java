@@ -63,6 +63,6 @@ public class TaskAdapter extends BaseAdapter {
         }
         Tasks task = tasksList.get(i);
         holder.textViewNameTask.setText(task.getTaskName());
-        return null;
+        return view;
     }
 }
