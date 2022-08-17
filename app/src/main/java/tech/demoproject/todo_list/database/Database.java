@@ -1,4 +1,4 @@
-package tech.demoproject.todo_list;
+package tech.demoproject.todo_list.database;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -12,9 +12,12 @@ import androidx.annotation.Nullable;
 * Create by HoangRyan aka LilDua on August 17 - 2022
 **/
 public class Database extends SQLiteOpenHelper {
-    public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, @Nullable DatabaseErrorHandler errorHandler) {
-        super(context, name, factory, version, errorHandler);
+
+
+    public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
     }
+
     /** query command does not return result: CREATE, INSERT, UPDATE, DELETE,...
      * */
     public void QueryData(String sql){
