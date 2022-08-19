@@ -1,7 +1,7 @@
 # To do list App
 To do list application for Android using Dialog.
 #
-<img src="Screenshot_1.png" width = "300" >
+<img src="Screenshot_1.png" width = "300" > <img src="Screenshot_2.png" width = "300" > <img src="Screenshot_3.png" width = "300" >
 # 💫About Me :
 
 ## 🌐Socials
