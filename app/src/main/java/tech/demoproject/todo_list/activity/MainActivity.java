@@ -18,7 +18,7 @@ import tech.demoproject.todo_list.object.Tasks;
 public class MainActivity extends AppCompatActivity {
 
     Database database;
-    RecyclerView recycleViewTasks;
+    ListView listViewTasks;
     ArrayList<Tasks> tasksArrayList;
     TaskAdapter taskAdapter;
     @Override
@@ -27,15 +27,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /** mapping*/
-        recycleViewTasks = findViewById(R.id.recycleViewTasks);
+        listViewTasks = findViewById(R.id.listViewTasks);
         tasksArrayList = new ArrayList<>();
         taskAdapter = new TaskAdapter(this,R.layout.task_line,tasksArrayList);
+        listViewTasks.setAdapter(taskAdapter);
         /** Create database Note*/
         database = new Database(this,"note.sqlite",null,1);
         /** create table tasks*/
         database.QueryData("CREATE TABLE IF NOT EXISTS Tasks(Id INTEGER PRIMARY KEY AUTOINCREMENT, TaskName VARCHAR(200) )");
         /** insert data*/
-        database.QueryData("INSERT INTO Tasks VALUES(null, 'To do job 2')");
+//        database.QueryData("INSERT INTO Tasks VALUES(null, 'To do job 2')");
         /** select data*/
         Cursor dataTask = database.GetData("SELECT * FROM Tasks");
         while (dataTask.moveToNext()){

@@ -1,32 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_weight="10"
-    android:padding="7dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black">
+    android:layout_height="wrap_content"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:paddingLeft="1dp"
+    android:paddingRight="1dp">
 
-    <TextView
-        android:id="@+id/textViewNameOfTask"
-        android:layout_weight="8"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:text="Name of Task "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <androidx.cardview.widget.CardView
+        android:padding="2dp"
+        app:cardCornerRadius="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
 
-    <ImageView
-        android:layout_weight="1"
-        android:src="@drawable/ic_edit_50"
-        android:id="@+id/imageViewEditTask"
-        android:layout_width="35sp"
-        android:layout_height="35sp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white">
 
-    <ImageView
-        android:layout_weight="1"
-        android:src="@drawable/ic_delete_50"
-        android:id="@+id/imageViewRemoveTask"
-        android:layout_width="35sp"
-        android:layout_height="35sp"/>
+            <TextView
+                android:fontFamily="@font/righteous"
+                android:id="@+id/textViewNameOfTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:text="Name of Task "
+                android:textColor="@color/black"
+                android:textSize="23sp" />
+
+            <ImageView
+                android:id="@+id/imageViewEditTask"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@id/imageViewRemoveTask"
+                android:src="@drawable/ic_edit_50" />
+
+            <ImageView
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_delete_50"
+                android:id="@+id/imageViewRemoveTask"
+                android:layout_width="30sp"
+                android:layout_height="30sp" />
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
 
 </LinearLayout>
