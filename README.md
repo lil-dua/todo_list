@@ -8,7 +8,8 @@ To do list application for Android using Dialog.
   hey there
   <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/>
 </h1>
-I'm a android developer from Vietnam
+I'm a android developer from Vietnam.
+
 - :telescope: I’m working as a Software Engineer and contributing to frontend and backend for building web applications.
 
 - :seedling: Exploring Technical Content Writing.
