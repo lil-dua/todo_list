@@ -2,21 +2,17 @@ package tech.demoproject.todo_list.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -87,29 +83,21 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          * set onClick button add the dialog*/
-        btnAddTask.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String taskName = editTextNameTask.getText().toString();
-                if(taskName.equals("")){
-                    Toast.makeText(MainActivity.this, "Please enter the name of task!", Toast.LENGTH_SHORT).show();
-                }else {
-                    /** insert data*/
-                    database.QueryData("INSERT INTO Tasks VALUES(null, '"+taskName+"')");
-                    Toast.makeText(MainActivity.this, "Task "+taskName+" was added!", Toast.LENGTH_SHORT).show();
-                    dialogAdd.dismiss();
-                    GetDataTask();
-                }
+        btnAddTask.setOnClickListener(view -> {
+            String taskName = editTextNameTask.getText().toString();
+            if(taskName.equals("")){
+                Toast.makeText(MainActivity.this, "Please enter the name of task!", Toast.LENGTH_SHORT).show();
+            }else {
+                /** insert data*/
+                database.QueryData("INSERT INTO Tasks VALUES(null, '"+taskName+"')");
+                Toast.makeText(MainActivity.this, "Task "+taskName+" was added!", Toast.LENGTH_SHORT).show();
+                dialogAdd.dismiss();
+                GetDataTask();
             }
         });
         /**
          * set onClick button cancel the dialog*/
-        btnCancelTask.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialogAdd.dismiss();
-            }
-        });
+        btnCancelTask.setOnClickListener(view -> dialogAdd.dismiss());
 
         dialogAdd.show();
     }
@@ -127,23 +115,15 @@ public class MainActivity extends AppCompatActivity {
         editTextRenameTask.setText(nameTask);
 
         /** set onClick button confirm edit task*/
-        btnConfirmEditTask.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String taskRename = editTextRenameTask.getText().toString().trim();
-                database.QueryData("UPDATE Tasks SET TaskName = '"+taskRename+"' WHERE Id = '"+id+"' ");
-                Toast.makeText(MainActivity.this, "Task "+ taskRename +"was updated!", Toast.LENGTH_SHORT).show();
-                dialogEdit.dismiss();
-                GetDataTask();
-            }
+        btnConfirmEditTask.setOnClickListener(view -> {
+            String taskRename = editTextRenameTask.getText().toString().trim();
+            database.QueryData("UPDATE Tasks SET TaskName = '"+taskRename+"' WHERE Id = '"+id+"' ");
+            Toast.makeText(MainActivity.this, "Task "+ taskRename +"was updated!", Toast.LENGTH_SHORT).show();
+            dialogEdit.dismiss();
+            GetDataTask();
         });
         /** set onClick button cancel edit task*/
-        btnCancelEditTask.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialogEdit.dismiss();
-            }
-        });
+        btnCancelEditTask.setOnClickListener(view -> dialogEdit.dismiss());
 
         dialogEdit.show();
     }
@@ -152,20 +132,14 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder dialogRemoveTask = new AlertDialog.Builder(this);
         dialogRemoveTask.setMessage("Do you want to remove "+taskName+"?");
         /**Confirm*/
-        dialogRemoveTask.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                database.QueryData("DELETE FROM Tasks WHERE Id = '"+id+"'");
-                Toast.makeText(MainActivity.this, taskName+" was removed!", Toast.LENGTH_SHORT).show();
-                GetDataTask();
-            }
+        dialogRemoveTask.setNegativeButton("Yes", (dialogInterface, i) -> {
+            database.QueryData("DELETE FROM Tasks WHERE Id = '"+id+"'");
+            Toast.makeText(MainActivity.this, taskName+" was removed!", Toast.LENGTH_SHORT).show();
+            GetDataTask();
         });
         /**Cancel*/
-        dialogRemoveTask.setPositiveButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
+        dialogRemoveTask.setPositiveButton("No", (dialogInterface, i) -> {
+            /** didn't do anything and close the dialog*/
         });
 
         dialogRemoveTask.show();
