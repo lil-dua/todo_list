@@ -4,7 +4,7 @@ To do list application for Android using Dialog.
 <img src="Screenshot_1.png" width = "300" >     <img src="Screenshot_2.png" width = "300" >     <img src="Screenshot_3.png" width = "300" >
 </pre>
 # 💫About Me :
-<h1>
+<h1 align="center">
   hey there
   <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/>
 </h1>
