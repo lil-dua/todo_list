@@ -9,6 +9,7 @@
     <color name="black">#000000</color>
     <color name="black_6_C">#191414</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="yellow_dark">#FFC107</color>
-    <color name="yellow_light">#FFEB3B</color>
+    <color name="yellow_dark">#FDDAA609</color>
+    <color name="yellow_light">#DFCE36</color>
+    <color name="actionBarTitleColor">#000000</color>
 </resources>
