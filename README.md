@@ -1,7 +1,7 @@
 # To do list App
-<pre>
 To do list application for Android using Dialog.
-<img src="Screenshot_1.png" width = "300" >   <img src="Screenshot_2.png" width = "300" >   <img src="Screenshot_3.png" width = "300" >
+<pre>
+<img src="Screenshot_1.png" width = "300" >     <img src="Screenshot_2.png" width = "300" >     <img src="Screenshot_3.png" width = "300" >
 </pre>
 # 💫About Me :
 
